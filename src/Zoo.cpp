@@ -27,6 +27,7 @@ string entertypeOfAnimall()
     return type;
 }
 
+
 void Zoo::run()
 {
     // Providing a seed value for randomization
@@ -106,6 +107,8 @@ void Zoo::run()
 
     cout << "Goodbye :-)\n";
 }
+
+
 
 void Zoo::stop(int i)
 {

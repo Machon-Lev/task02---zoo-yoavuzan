@@ -1,1 +1,1 @@
-target_sources (ex02_Project02 PRIVATE "Zoo.cpp")
+target_sources (ex02_Project02 PRIVATE "Zoo.cpp" "Animal.cpp" "Lion.cpp" "Monkey.cpp""Owl.cpp" "Location.cpp")
