@@ -16,8 +16,14 @@ Location randLoc();
 class Zoo
 {
 public:
+    // Constructor for the Zoo class
+    Zoo() {};
+
     // Run the zoo simulation
     void run();
+    
+    // Destructor for the Zoo class
+    ~Zoo() {};
 
 private:
     vector<Animal*> _allAnimals;

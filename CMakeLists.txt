@@ -12,8 +12,10 @@ if (MSVC)
 	add_compile_options (/W4 /permissive- /Zc:externConstexpr /Zc:inline)
 endif ()
 # Include sub-projects.
-add_executable (ex02_Project02 "include/Animal.h" "include/Lion.h" "include/Monkey.h" "include/Owl.h" "include/Zoo.h"
-"src/Animal.cpp" "src/Lion.cpp" "src/Monkey.cpp" "src/Zoo.cpp" "src/Owl.cpp" 
- "src/Location.cpp" "src/ex02_Project02.cpp" )
+add_executable (ex02_Project02 "include/Animal.h" "include/Lion.h" "include/Monkey.h" 
+"include/direction.h" "include/Owl.h" "include/Zoo.h"
+"src/Animal.cpp" "src/Lion.cpp" "src/Monkey.cpp" 
+"src/Zoo.cpp" "src/Owl.cpp" "src/Location.cpp" 
+"src/ex02_Project02.cpp"  )
 add_subdirectory (include)
 add_subdirectory (src)
