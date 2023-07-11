@@ -20,7 +20,7 @@ public:
     void run();
 
 private:
-    vector<Animal*> allAnimals;
+    vector<Animal*> _allAnimals;
 
     // Stop the movement of the animal at the given index
     void stop(int i);

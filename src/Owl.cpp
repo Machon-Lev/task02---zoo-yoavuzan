@@ -6,8 +6,8 @@ Owl::Owl(const string n, Location l) :Animal(n, l)
 	{
 		setLocation(2 + (rand() % 15), 2 + (rand() % 35));
 	}
-	typeOfAnimal = "Owl";
-	d = (direction)(5 + (rand() % 4));
+	_typeOfAnimal = "Owl";
+	_d = (direction)(5 + (rand() % 4));
 }
 
 bool Owl::checkRowAndCol(int _row, int _col)
@@ -18,62 +18,62 @@ bool Owl::checkRowAndCol(int _row, int _col)
 void Owl::doingMove(int step_to_move)
 {
 
-	if (d == direction::UL)
+	if (_d == direction::UL)
 	{
-		if (checkRowAndCol(location._row - step_to_move, location._col - step_to_move))
+		if (checkRowAndCol(_location._row - step_to_move, _location._col - step_to_move))
 		{
-			location._row = location._row - step_to_move;
-			location._col = location._col - step_to_move;
+			_location._row = _location._row - step_to_move;
+			_location._col = _location._col - step_to_move;
 			return;
 		}
 		else
 		{
-			d = direction::DR;
+			_d = direction::DR;
 			doingMove(3);
 			return;
 		}
 	}
-	if (d == direction::DL)
+	if (_d == direction::DL)
 	{
-		if (checkRowAndCol(location._row + step_to_move, location._col - step_to_move))
+		if (checkRowAndCol(_location._row + step_to_move, _location._col - step_to_move))
 		{
-			location._row = location._row + step_to_move;
-			location._col = location._col - step_to_move;
+			_location._row = _location._row + step_to_move;
+			_location._col = _location._col - step_to_move;
 			return;
 		}
 		else
 		{
-			d = direction::UR;
+			_d = direction::UR;
 			doingMove(3);
 			return;
 		}
 	}
-	if (d == direction::UR)
+	if (_d == direction::UR)
 	{
-		if (checkRowAndCol(location._row - step_to_move, location._col + step_to_move))
+		if (checkRowAndCol(_location._row - step_to_move, _location._col + step_to_move))
 		{
-			location._row = location._row - step_to_move;
-			location._col = location._col + step_to_move;
+			_location._row = _location._row - step_to_move;
+			_location._col = _location._col + step_to_move;
 			return;
 		}
 		else
 		{
-			d = direction::DL;
+			_d = direction::DL;
 			doingMove(3);
 			return;
 		}
 	}
-	if (d == direction::DR)
+	if (_d == direction::DR)
 	{
-		if (checkRowAndCol(location._row + step_to_move, location._col + step_to_move))
+		if (checkRowAndCol(_location._row + step_to_move, _location._col + step_to_move))
 		{
-			location._row = location._row + step_to_move;
-			location._col = location._col + step_to_move;
+			_location._row = _location._row + step_to_move;
+			_location._col = _location._col + step_to_move;
 			return;
 		}
 		else
 		{
-			d = direction::UL;
+			_d = direction::UL;
 			doingMove(3);
 			return;
 		}
@@ -83,7 +83,7 @@ void Owl::doingMove(int step_to_move)
 
 void Owl::step()
 {
-	if (!stopMove)
+	if (!_stopMove)
 	{
 		doingMove(3);
 	}

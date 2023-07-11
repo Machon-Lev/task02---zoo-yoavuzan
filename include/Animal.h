@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <list>
-#include "Location.cpp"
 #include <iostream>
+#include "../src/Location.cpp"
 
 using std::cout;
 using std::string;
@@ -22,11 +22,11 @@ protected:
         UR = 8
     };
 
-    Location location;
-    string name;
-    string typeOfAnimal;
-    direction d;
-    bool stopMove = false;
+    Location _location;
+    string _name;
+    string _typeOfAnimal;
+    direction _d;
+    bool _stopMove = false;
 
 public:
     // Constructor for the Animal class that takes a name and a location
@@ -39,16 +39,16 @@ public:
     virtual const char getInitial() = 0;
 
     // Get the current location of the animal
-    Location getLocation() { return location; }
+    Location getLocation() { return _location; }
 
     // Abstract method for the animal to perform a step
     virtual void step() = 0;
 
     // Stop the movement of the animal
-    void stop() { stopMove = true; }
+    void stop() { _stopMove = true; }
 
     // Allow the animal to move
-    virtual void move() { stopMove = false; };
+    virtual void move() { _stopMove = false; };
 
     // Change the direction of the animal vertically
     void turnVertically();
@@ -57,5 +57,5 @@ public:
     void turnHorizontally();
 
     // Set the location of the animal with the given _row and _column values
-    void setLocation(int _row, int _col) { location._row = _row; location._col = _col; }
+    void setLocation(int _row, int _col) { _location._row = _row; _location._col = _col; }
 };
