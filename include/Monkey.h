@@ -4,7 +4,7 @@
 class Monkey : public Animal
 {
 private:
-    int counter;
+    int _counter;
 
     // Perform the movement of the Monkey by a given number of steps
     void doingMove(int step_to_move);

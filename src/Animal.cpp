@@ -3,15 +3,15 @@
 Animal::Animal(const string n, const Location l)
 {
     // Constructor for the Animal class that initializes its name and location
-    name = n;
-    location = l;
+    _name = n;
+    _location = l;
 }
 
 void Animal::printDetails() const
 {
     // Print the details of the animal, including its name, type, location, and if it can move
-    cout << "Name: " << name << " Type: " << typeOfAnimal << " Location: " << location << " Can move: ";
-    if (!stopMove)
+    cout << "Name: " << _name << " Type: " << _typeOfAnimal << " Location: " << _location << " Can move: ";
+    if (!_stopMove)
         cout << "yes\n";
     else
         cout << "No\n";
@@ -20,21 +20,21 @@ void Animal::printDetails() const
 void Animal::turnVertically()
 {
     // Change the direction of the animal vertically (up to down or down to up)
-    if (d == direction::UP) {
-        d = direction::DOWN;
+    if (_d == direction::UP) {
+        _d = direction::DOWN;
     }
-    if (d == direction::DOWN) {
-        d = direction::UP;
+    if (_d == direction::DOWN) {
+        _d = direction::UP;
     }
 }
 
 void Animal::turnHorizontally()
 {
     // Change the direction of the animal horizontally (left to right or right to left)
-    if (d == direction::LEFT) {
-        d = direction::RIGHT;
+    if (_d == direction::LEFT) {
+        _d = direction::RIGHT;
     }
-    if (d == direction::RIGHT) {
-        d = direction::LEFT;
+    if (_d == direction::RIGHT) {
+        _d = direction::LEFT;
     }
 }

@@ -36,11 +36,11 @@ void Zoo::run()
     Monkey m("Rafiki", randLoc());
     Lion l1("Simba", randLoc());
     Lion l2("Mufasa", randLoc());
-    allAnimals.push_back(&m);
-    allAnimals.push_back(&l1);
-    allAnimals.push_back(&l2);
+    _allAnimals.push_back(&m);
+    _allAnimals.push_back(&l1);
+    _allAnimals.push_back(&l2);
     Owl o("Hedwig", randLoc());
-    allAnimals.push_back(&o);
+    _allAnimals.push_back(&o);
 
     printTheMap();
 
@@ -110,13 +110,13 @@ void Zoo::run()
 void Zoo::stop(int i)
 {
     // Stop the movement of the animal at the given index
-    allAnimals[i]->stop();
+    _allAnimals[i]->stop();
 }
 
 void Zoo::move(int i)
 {
     // Allow the animal at the given index to move
-    allAnimals[i]->move();
+    _allAnimals[i]->move();
 }
 
 void Zoo::create(string typeOfAnimal, string name)
@@ -124,15 +124,15 @@ void Zoo::create(string typeOfAnimal, string name)
     // Create a new animal of the given type with the given name
     if (typeOfAnimal == "Monkey")
     {
-        allAnimals.push_back(new Monkey(name, randLoc()));
+        _allAnimals.push_back(new Monkey(name, randLoc()));
     }
     else if (typeOfAnimal == "Lion")
     {
-        allAnimals.push_back(new Lion(name, randLoc()));
+        _allAnimals.push_back(new Lion(name, randLoc()));
     }
     else if (typeOfAnimal == "Owl")
     {
-        allAnimals.push_back(new Owl(name, randLoc()));
+        _allAnimals.push_back(new Owl(name, randLoc()));
     }
     else
     {
@@ -143,17 +143,17 @@ void Zoo::create(string typeOfAnimal, string name)
 void Zoo::del(int i)
 {
     // Delete the animal at the given index
-    allAnimals.erase(allAnimals.begin() + i);
+    _allAnimals.erase(_allAnimals.begin() + i);
 }
 
 void Zoo::delAll(string typeOfAnimal)
 {
     // Delete all animals of the given type
-    for (int i = 0; i < allAnimals.size(); i++)
+    for (int i = 0; i < _allAnimals.size(); i++)
     {
-        if (allAnimals[i]->getInitial() == typeOfAnimal[0])
+        if (_allAnimals[i]->getInitial() == typeOfAnimal[0])
         {
-            allAnimals.erase(allAnimals.begin() + i);
+            _allAnimals.erase(_allAnimals.begin() + i);
             i--; // Update the index to account for the removed element
         }
     }
@@ -176,9 +176,9 @@ void Zoo::help()
 void Zoo::step()
 {
     // Perform a step for all animals
-    for (int i = 0; i < allAnimals.size(); i++)
+    for (int i = 0; i < _allAnimals.size(); i++)
     {
-        allAnimals[i]->step();
+        _allAnimals[i]->step();
     }
 }
 
@@ -199,10 +199,10 @@ void Zoo::printTheMap()
     }
 
     // Place the animals on the matrix according to their location
-    for (int i = 0; i < allAnimals.size(); i++)
+    for (int i = 0; i < _allAnimals.size(); i++)
     {
-        auto loc = allAnimals[i]->getLocation();
-        matrix[loc._row][loc._col] = allAnimals[i]->getInitial();
+        auto loc = _allAnimals[i]->getLocation();
+        matrix[loc._row][loc._col] = _allAnimals[i]->getInitial();
     }
 
     // Print the matrix
@@ -216,10 +216,10 @@ void Zoo::printTheMap()
     }
 
     // Print the details of each animal
-    for (int i = 0; i < allAnimals.size(); i++)
+    for (int i = 0; i < _allAnimals.size(); i++)
     {
         cout << i << " ";
-        allAnimals[i]->printDetails();
+        _allAnimals[i]->printDetails();
         cout << "\n";
     }
 }
